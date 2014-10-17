@@ -4,12 +4,12 @@ session_start();
 
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 	{
-		header("Location: /index.php");
+		header("Location: index.php");
 	}	
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['action']))
 	{
-		header("Location: /index.php");
+		header("Location: index.php");
 	}
 
 	//verifica acciones por metodo post
@@ -26,7 +26,7 @@ session_start();
 		}
 		else
 		{
-			header("Location: /index.php");
+			header("Location: index.php");
 			die();
 		}
 	}
@@ -38,7 +38,7 @@ session_start();
 
 		if($action1 == 'salir')
 		{
-			header("Location: /index.php");
+			header("Location: index.php");
 			session_destroy();
 			die();
 		}
@@ -66,7 +66,7 @@ function login($user,$pass){
 	}
 	elseif ($res == 'fail') 
 	{
-		header ('Location: /index.php?error=1');
+		header ('Location: index.php?error=1');
 		die();
 	}
 }

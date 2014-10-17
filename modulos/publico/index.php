@@ -35,7 +35,7 @@
 
 		  		<div class="form-group">
 
-		  			<form action="/CONTconectarse.php" method="post">
+		  			<form action="CONTconectarse.php" method="post">
 		  				
 		  				
 		  				<div class="col-sm-12" align="center">

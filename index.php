@@ -1,5 +1,5 @@
 <?php
 
-	header('Location: /modulos/publico/vistas/index.php');
+	header('Location: /Integrador/modulos/publico/index.php');
 
 ?>
