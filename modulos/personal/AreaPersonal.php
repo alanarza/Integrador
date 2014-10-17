@@ -92,17 +92,18 @@
       <div class="panel-body">
         
       <?php
-      if(isset($_GET))
-      {
+      if(!empty($busqueda)):
       
-        foreach ($busqueda as $llave => $valor):
+      
+        foreach ($busqueda as $valor=>$lol):
       ?>
 
           <div class="panel panel-default">
             <div class="panel-body">
               <?php 
 
-              echo ($llave.": ".$valor);
+              echo $valor['nombre'];
+              echo $valor['apellido'];
 
               ?>
             </div>
@@ -111,7 +112,7 @@
 
       <?php
         endforeach;
-      }
+      endif;
       ?>
 
       </div>

@@ -45,12 +45,7 @@ function buscar($n, $a){
 	{
 		$busqueda = $a->buscar($n,$a);
 
-		foreach ($busqueda as $llave => $valor)
-		{
-			$url = $url.$llave."=".$valor."&"; 
-		}
-
-		header("Location: /AreaPersonal.php?".$url);
+		include "AreaPersonal.php";
 
 		die();
 	}
