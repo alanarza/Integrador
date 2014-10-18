@@ -115,7 +115,7 @@ class Usuario{
 		{
 			try{
 
-				$sql = "SELECT * FROM usuarios WHERE nombre = :nombre AND apellido = :apellido";
+				$sql = "SELECT nombre,apellido FROM usuarios WHERE nombre = :nombre AND apellido = :apellido";
 				$stmt = $conn->prepare($sql);
 				$stmt->bindParam(':nombre',$n ,PDO::PARAM_STR);
 				$stmt->bindParam(':apellido',$a ,PDO::PARAM_STR);
@@ -123,7 +123,7 @@ class Usuario{
 
 				if($stmt->rowCount() > 0)
 				{
-					$busqueda = $stmt->fetch(PDO::FETCH_ASSOC);
+					$busqueda = $stmt->fetchAll();
 
 					return $busqueda;
 				}

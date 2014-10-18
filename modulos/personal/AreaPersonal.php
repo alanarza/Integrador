@@ -95,15 +95,17 @@
       if(!empty($busqueda)):
       
       
-        foreach ($busqueda as $valor=>$lol):
+        
+
+          foreach ($busqueda as $val):
       ?>
 
           <div class="panel panel-default">
             <div class="panel-body">
               <?php 
 
-              echo $valor['nombre'];
-              echo $valor['apellido'];
+              echo $val;
+              
 
               ?>
             </div>
@@ -112,6 +114,7 @@
 
       <?php
         endforeach;
+        
       endif;
       ?>
 
