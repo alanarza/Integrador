@@ -18,14 +18,7 @@ session_start();
 
 		if($action == 'baja')
 		{
-			$nombre = $_POST['nombre'];
-			$apellido = $_POST['apellido'];
-			$user = $_POST['user'];
-			$pass = $_POST['pass'];
-
-			$res = modificar($usuario,$_SESSION['id']);
-
-			return $res;
+			$res = deleter();
 		}
 		else
 		{
@@ -34,7 +27,7 @@ session_start();
 		}
 	}	
 
-	function delete(){
+	function deleter(){
 		include "../../modelo/usuario.class.php";
 
 		$a = new Usuario();
