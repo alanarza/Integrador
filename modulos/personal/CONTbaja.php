@@ -27,6 +27,17 @@ session_start();
 		}
 	}	
 
+	if($res == 'ok')
+	{
+		header ('Location: Baja_ok.php');
+		die();
+	}
+	elseif ($res == 'fail') 
+	{
+		header ('Location: ../publico/index.php?error=1');
+		die();
+	}
+
 	function deleter(){
 		include "../../modelo/usuario.class.php";
 
@@ -41,14 +52,5 @@ session_start();
 			die();
 		}
 
-		if($res == 'ok')
-		{
-			header ('Location: /Baja_ok.php');
-			die();
-		}
-		elseif ($res == 'fail') 
-		{
-			header ('Location: ../publico/index.php?error=1');
-			die();
-		}
+		return $res;
 	}

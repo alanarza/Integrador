@@ -226,7 +226,7 @@ class Usuario{
 	}
 
 	function baja($id){
-		$id = $i;
+		$i = $id;
 
 		$conn = new conexion();
 
