@@ -234,7 +234,7 @@ class Usuario{
 
 			$sql = "DELETE FROM usuarios WHERE id = :id";
 			$stmt = $conn->prepare($sql);
-			$stmt->bindParam(':id', $id, PDO::PARAM_STR);
+			$stmt->bindParam(':id', $i, PDO::PARAM_STR);
 			$stmt->execute();
 
 			if($stmt->rowCount() == 1)
