@@ -4,7 +4,7 @@
 
 	if (!isset($_SESSION['nombre'])) 
 	{
-		header("Location: ../index.php");
+		header("Location: ../../index.php");
 	}
 ?>
 
@@ -13,7 +13,7 @@
 <head>
 	<title>Baja de usuarios</title>
   <meta charset="utf-8">
-	<link href="../../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 			 <h2>¿Está seguro que desea eliminar su cuenta?</h2>
 		  </div>
     </div>
-        <form role="form" action="../../controlador/baja.php" method="post">
+        <form role="form" action="CONTbaja.php" method="post">
           <div class="container">
             <div class="col-sm-4">
               <label for="contraseña"> Ingrese su contraseña para confirmar la baja </label>
@@ -37,7 +37,7 @@
      <br>
         <input id="action" type="hidden" name="action" value="baja"/>
         <button type="cancel" onclick="javascript:window.location='AreaPersonal.php';" class="btn btn-danger">Cancelar</button>
-        <button type="submit" onclick="javascript:window.location='../index.php';" class="btn btn-success">Darme de baja</button>
+        <button type="submit" onclick="javascript:window.location='../../index.php';" class="btn btn-success">Darme de baja</button>
       </div>
     </div>
     </form>
