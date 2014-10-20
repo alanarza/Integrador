@@ -225,23 +225,22 @@ class Usuario{
 		return 'fail';
 	}
 
-	function baja($id){
+	function baja1($id){
 		$i = $id;
 
 		$conn = new conexion();
 
 		try{
 
-			$sql = "DELETE FROM usuarios WHERE id = :id";
+			$sql = "SELECT pass FROM usuarios WHERE id = :id";
 			$stmt = $conn->prepare($sql);
 			$stmt->bindParam(':id', $i, PDO::PARAM_STR);
 			$stmt->execute();
 
 			if($stmt->rowCount() == 1)
 			{
-				$fila = $stmt->fetch(PDO::FETCH_ASSOC);
-				
-				return 'ok';
+				$pass = $stmt->fetch(PDO::FETCH_ASSOC);
+				return $pass;
 			}	
 
 		} catch(PDOException $e){
@@ -251,4 +250,27 @@ class Usuario{
 		return 'fail';
 	}
 
+	function baja2($id){
+		$i = $id;
+
+		$conn = new conexion();
+
+		try{
+				$sql = "DELETE FROM usuarios WHERE id = :id";
+				$stmt = $conn->prepare($sql);
+				$stmt->bindParam(':id', $i, PDO::PARAM_STR);
+				$stmt->execute();
+
+				if($stmt->rowCount() == 1)
+				{		
+					return 'ok';
+				}
+			}	
+
+		} catch(PDOException $e){
+			throw new Exception($e->getMessage());
+		}
+
+		return 'fail';
+	}
 }
