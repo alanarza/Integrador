@@ -37,6 +37,16 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Opciones<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Drafts</a></li>
+                    <li><a href="#">Sent Items</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Trash</a></li>
+                </ul>
+            </li>
             <li><a href="../publico/CONTconectarse.php?action=salir">Cerrar Sesion</a></li>
             
           </ul>
