@@ -5,12 +5,12 @@
 
 	header("Content-Type: text/html; charset=UTF-8");
 
-	include "../../modelo/usuario.class.php";
+	/*include "../../modelo/usuario.class.php";
 
 	$a = new usuario();
 
 	$a->obtener($_SESSION['id']);
-
+*/
 ?>
 
 <!DOCTYPE html>

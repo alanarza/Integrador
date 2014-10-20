@@ -6,6 +6,7 @@
 	{
 		header("Location: ../../index.php");
 	}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +38,7 @@
      <br>
         <input id="action" type="hidden" name="action" value="baja"/>
         <button type="cancel" onclick="javascript:window.location='AreaPersonal.php';" class="btn btn-danger">Cancelar</button>
-        <button type="submit" onclick="javascript:window.location='CONTbaja.php';" class="btn btn-success">Darme de baja</button>
+        <button type="submit" class="btn btn-success">Darme de baja</button>
       </div>
     </div>
     </form>
