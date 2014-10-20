@@ -76,16 +76,24 @@
 
 	</div>
 
-	<div class="col-sm-12">
-		<?php
-			if(isset($_GET['error'])):
-		?>
+	<div class="container">
 
-			<div class='alert alert-danger' role='alert'>Nombre de usuario y/o contraseña incorrectos.</div>
+		<div class="col-sm-4"></div>
 
-		<?php
-			endif;
-		?>
+		<div class="col-sm-4">
+			<?php
+				if(isset($_GET['error'])):
+			?>
+
+				<div class='alert alert-danger' role='alert'>Nombre de usuario y/o contraseña incorrectos.</div>
+
+			<?php
+				endif;
+			?>
+		</div>
+
+		<div class="col-sm-4"></div>
+
 	</div>
 
 </body>
