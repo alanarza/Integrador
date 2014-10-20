@@ -38,8 +38,11 @@ session_start();
 
 		if($action1 == 'salir')
 		{
-			header("Location: index.php");
+			$_SESSION = array();
+			
 			session_destroy();
+			header("Location: index.php");
+			
 			die();
 		}
 	}

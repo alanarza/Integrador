@@ -226,7 +226,7 @@ class Usuario{
 	}
 
 	function baja($id){
-		$id = $i;
+		
 
 		$conn = new conexion();
 
@@ -239,7 +239,6 @@ class Usuario{
 
 			if($stmt->rowCount() == 1)
 			{
-				$fila = $stmt->fetch(PDO::FETCH_ASSOC);
 				
 				return 'ok';
 			}	

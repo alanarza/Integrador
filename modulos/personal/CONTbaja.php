@@ -28,6 +28,7 @@ session_start();
 	}	
 
 	function deleter(){
+
 		include "../../modelo/usuario.class.php";
 
 		$a = new Usuario();
@@ -43,7 +44,7 @@ session_start();
 
 		if($res == 'ok')
 		{
-			header ('Location: /Baja_ok.php');
+			header ('Location: ../publico/CONTconectarse.php?action=salir');
 			die();
 		}
 		elseif ($res == 'fail') 
