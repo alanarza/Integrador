@@ -99,17 +99,17 @@
 
           foreach ($busqueda as $val):
       ?>
-
+        <div class="col-sm-6">
           <div class="panel panel-default">
             <div class="panel-body">
               <?php 
 
-              echo $val;
-              
+              echo "Nombre: ".$val['nombre']."  -  Apellido: ".$val['apellido'];
 
               ?>
             </div>
           </div>
+        </div>
 
 
       <?php

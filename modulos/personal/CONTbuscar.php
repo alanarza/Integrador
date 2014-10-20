@@ -39,11 +39,11 @@ function buscar($n, $a){
 
 	include "../../modelo/usuario.class.php";
 
-	$a = new Usuario();
+	$u = new Usuario();
 
 	try
 	{
-		$busqueda = $a->buscar($n,$a);
+		$busqueda = $u->buscar($n,$a);
 
 		include "AreaPersonal.php";
 
