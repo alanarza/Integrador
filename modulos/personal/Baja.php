@@ -37,7 +37,7 @@
      <div class="col-sm-4">
      <br>
         <input id="action" type="hidden" name="action" value="baja"/>
-        <button type="cancel" onclick="javascript:window.location='AreaPersonal.php';" class="btn btn-danger">Cancelar</button>
+        <button onclick="javascript:window.location='AreaPersonal.php';" class="btn btn-danger">Cancelar</button>
         <button type="submit" class="btn btn-success">Darme de baja</button>
       </div>
     </div>

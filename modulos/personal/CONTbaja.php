@@ -26,11 +26,11 @@ session_start();
 		}
 	}	
 
-	if($res == 'ok'){
+	if($res != 'ok'){
+		header('Location: Baja.php');
+	} else{
 		header ('Location: ../publico/CONTconectarse.php?action=salir');
 		die();
-	} else{
-		header('Location: Baja.php');
 	}
 
 
