@@ -27,6 +27,9 @@
 
 
 <body>
+
+  
+
   <div class="container">
 	  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -103,21 +106,23 @@
             </div>
           </div>
 
-          <input id="action" type="hidden" name="action" value="buscar"/>
+          <div class="col-sm-6">
+            <input id="action" type="hidden" name="action" value="buscar"/>
 
-          <button type="submit" class="btn btn-default">Buscar</button>
-
+            <button type="submit" class="btn btn-default">Buscar</button>
+          </div>
+          <hr>
         </form>
+        
       </div>
+
+
 
       <div class="panel-body">
         
       <?php
       if(!empty($busqueda)):
-      
-      
-        
-
+    
           foreach ($busqueda as $val):
       ?>
         <div class="col-sm-6">
@@ -132,7 +137,6 @@
           </div>
         </div>
 
-
       <?php
         endforeach;
         
@@ -143,10 +147,6 @@
     </div>
 
   </div> <!--Fin del cuerpo de la pagina-->
-		
-	
-	</div>
-	
 
 </body>
 </html>
