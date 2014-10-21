@@ -11,6 +11,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Bienvenido <?php echo $_SESSION['nombre'];?></title>
   <meta charset="utf-8">
@@ -19,13 +20,17 @@
     $(document).ready(function () {
         $('.dropdown-toggle').dropdown();
     });
-</script>
-<script src="../librerias/js/bootstrap.min.js"></script>
+  </script>
+  <script src="../librerias/js/bootstrap.min.js"></script>
 	<link href="../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
+
+
 <body>
-	    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+	  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
@@ -39,18 +44,27 @@
             <li class="#staff"><a href="#">Personal</a></li>
             <li><a href="#about">Sobre</a></li>
           </ul>
-          <ul class="nav  navbar-right">
-              <button type="button" data-toggle="dropdown" class="btn btn-lg btn-primary dropdown-toggle">Opciones de perfil   <span class="caret"></span></button>
+          <ul class="nav navbar-nav navbar-right">
+              
+            <li class="dropdown">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+              Opciones
+              <span class="caret"></span>
+            </a>
               <ul class="dropdown-menu">
-                <li><a href="Modificacion.php">Cambiar mis datos</a></li>
-                <li><a href="Baja.php">Eliminar mi perfil</a></li>
+                <li><a href="Modificacion.php">Cambiar mis Datos</a></li>
+                <li><a href="Baja.php">Eliminar mi Perfil</a></li>
                 <li class="divider"></li>
-                <li><a href="../publico/CONTconectarse.php?action=salir">Cerrar sesión</a></li>
+                <li><a href="../publico/CONTconectarse.php?action=salir">Cerrar Sesion</a></li>
               </ul>
+
+            </li>
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
+  </div>
 
 
     <div class="container">
