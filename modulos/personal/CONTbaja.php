@@ -49,7 +49,7 @@ session_start();
 			die();
 		}
 
-		if($res != 'fail')
+		if($res == $_POST['pass'])
 		{
 			$res2 = deleter2();
 			return $res2;
