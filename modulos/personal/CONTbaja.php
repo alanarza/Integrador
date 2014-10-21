@@ -26,7 +26,7 @@ session_start();
 		}
 	}	
 
-	if($res = 'ok'){
+	if($res == 'ok'){
 		header ('Location: ../publico/CONTconectarse.php?action=salir');
 		die();
 	} else{
@@ -70,7 +70,6 @@ session_start();
 
 		} catch (Exception $e) {
 			header("Location: ../error/ErrorBaja.php?msg".$e->getMessage());
-
 			die();
 		}
 
