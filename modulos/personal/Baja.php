@@ -29,7 +29,7 @@
           <div class="container">
             <div class="col-sm-4">
               <label for="contraseña"> Ingrese su contraseña para confirmar la baja </label>
-              <input type="password" name="pass" class="form-control" id="contraseña" type="password" required>
+              <input type="password" name="pass" class="form-control" id="contraseña" type="password">
             </div>
           </div>
 

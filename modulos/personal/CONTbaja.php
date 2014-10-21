@@ -2,7 +2,6 @@
 
 session_start();
 
-
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
 	{
 		header("Location: ../publico/index.php");
@@ -27,25 +26,11 @@ session_start();
 		}
 	}	
 
-	if($res == 'fail')
-	{
-		header ('Location: ../publico/index.php?error=1');
+	if($res = 'ok'){
+		header ('Location: ../publico/CONTconectarse.php?action=salir');
 		die();
-	}
-	else 
-	{
-		if($res = $_POST['pass'])
-		{
-			$res2 = deleter2();
-		}
-	}
-
-	if($res2 = 'ok'){
-		header("Location: ../index.php".$e->getMessage());
-		die();
-
 	} else{
-		header("Location: Baja.php")
+		header('Location: Baja.php');
 	}
 
 
@@ -64,17 +49,14 @@ session_start();
 			die();
 		}
 
-
-		if($res == 'ok')
+		if($res != 'fail')
 		{
-			header ('Location: ../publico/CONTconectarse.php?action=salir');
-			die();
+			$res2 = deleter2();
+			return $res2;
+		}else{
+			header ('Location: Baja.php');
+			return $res;
 		}
-		elseif ($res == 'fail') 
-		{
-			header ('Location: ../publico/index.php?error=1');
-
-		return $res;
 	}
 
 	function deleter2(){
