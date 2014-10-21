@@ -14,13 +14,12 @@
 <head>
 	<title>Bienvenido <?php echo $_SESSION['nombre'];?></title>
   <meta charset="utf-8">
-  <script src="../librerias/js/ jquery-2.1.1.min.js"></script>
+  <script src="../librerias/js/jquery-2.1.1.min.js"></script>
   <script>
     $(document).ready(function () {
         $('.dropdown-toggle').dropdown();
     });
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="../librerias/js/bootstrap.min.js"></script>
 	<link href="../librerias/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
@@ -41,16 +40,14 @@
             <li class="#staff"><a href="#">Personal</a></li>
             <li><a href="#about">Sobre</a></li>
           </ul>
-
-  <div class="btn-group">
-        <button type="button" class="btn btn-primary">Opciones de perfil</button>
-        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li><a href="Modificacion.php">Cambiar mis datos</a></li>
-            <li><a href="Baja.php">Eliminar mi perfil</a></li>
-        </ul>
-    </div>
-
+          <div class="btn-group">
+                <button type="button" class="btn btn-primary">Opciones de perfil</button>
+                <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="Modificacion.php">Cambiar mis datos</a></li>
+                    <li><a href="Baja.php">Eliminar mi perfil</a></li>
+                </ul>
+          </div>
           <ul class="nav navbar-nav navbar-right">
             <ul class="nav navbar-nav">
             <li><a href="../publico/CONTconectarse.php?action=salir">Cerrar Sesion</a></li>
