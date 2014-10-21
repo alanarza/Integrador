@@ -51,7 +51,8 @@
 				  	
 					<input id="action" type="hidden" name="action" value="registrarse"/>
 
-				  	<button type="submit" class="btn btn-default">Enviar</button>
+				  	<button type="cancel" onclick="javascript:window.location='../publico/index.php';" class="btn btn-default">Volver</button>
+				  	<button type="submit" class="btn btn-success">Enviar</button>
 
 				</form>
 
