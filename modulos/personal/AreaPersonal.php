@@ -28,7 +28,6 @@
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -40,18 +39,14 @@
             <li class="#staff"><a href="#">Personal</a></li>
             <li><a href="#about">Sobre</a></li>
           </ul>
-          <div class="btn-group">
-                <button type="button" class="btn btn-primary">Opciones de perfil</button>
-                <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href="Modificacion.php">Cambiar mis datos</a></li>
-                    <li><a href="Baja.php">Eliminar mi perfil</a></li>
-                </ul>
-          </div>
-          <ul class="nav navbar-nav navbar-right">
-            <ul class="nav navbar-nav">
-            <li><a href="../publico/CONTconectarse.php?action=salir">Cerrar Sesion</a></li>
-          </ul>
+          <ul class="nav  navbar-right">
+              <button type="button" data-toggle="dropdown" class="btn btn-lg btn-primary dropdown-toggle">Opciones de perfil   <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="Modificacion.php">Cambiar mis datos</a></li>
+                <li><a href="Baja.php">Eliminar mi perfil</a></li>
+                <li class="divider"></li>
+                <li><a href="../publico/CONTconectarse.php?action=salir">Cerrar sesión</a></li>
+              </ul>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
