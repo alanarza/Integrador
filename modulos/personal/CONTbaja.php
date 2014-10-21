@@ -27,6 +27,28 @@ session_start();
 		}
 	}	
 
+	if($res == 'fail')
+	{
+		header ('Location: ../publico/index.php?error=1');
+		die();
+	}
+	else 
+	{
+		if($res = $_POST['pass'])
+		{
+			$res2 = deleter2();
+		}
+	}
+
+	if($res2 = 'ok'){
+		header("Location: ../index.php".$e->getMessage());
+		die();
+
+	} else{
+		header("Location: Baja.php")
+	}
+
+
 	function deleter(){
 
 		include "../../modelo/usuario.class.php";
@@ -35,12 +57,13 @@ session_start();
 
 		try {
 
-			$res = $a->baja($_SESSION['id']);
+			$res = $a->baja1($_SESSION['id']);
 
 		} catch (Exception $e) {
 			header("Location: ../error/ErrorBaja.php?msg".$e->getMessage());
 			die();
 		}
+
 
 		if($res == 'ok')
 		{
@@ -50,6 +73,24 @@ session_start();
 		elseif ($res == 'fail') 
 		{
 			header ('Location: ../publico/index.php?error=1');
+
+		return $res;
+	}
+
+	function deleter2(){
+		include "../../modelo/usuario.class.php";
+
+		$a = new Usuario();
+
+		try {
+
+			$res = $a->baja2($_SESSION['id']);
+
+		} catch (Exception $e) {
+			header("Location: ../error/ErrorBaja.php?msg".$e->getMessage());
+
 			die();
 		}
+
+		return $res;
 	}
