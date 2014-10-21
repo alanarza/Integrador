@@ -38,11 +38,7 @@
      <br>
         <input id="action" type="hidden" name="action" value="baja"/>
         <button type="cancel" onclick="javascript:window.location='AreaPersonal.php';" class="btn btn-danger">Cancelar</button>
-<<<<<<< HEAD
-        <button type="submit" onclick="javascript:window.location='CONTbaja.php';" class="btn btn-success">Darme de baja</button>
-=======
         <button type="submit" class="btn btn-success">Darme de baja</button>
->>>>>>> b6d2dd08b8d526d98c0821020e42ad80e908f966
       </div>
     </div>
     </form>
