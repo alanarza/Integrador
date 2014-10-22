@@ -195,6 +195,37 @@ class Usuario{
 
 	}
 
+	private function comparador(){
+
+		$id = $_SESSION['id'];
+
+		$conn = new conexion();
+
+		try{
+
+			$sql = "SELECT user, pass, nombre, apellido FROM usuarios WHERE id = :id";
+			$stmt = $conn->prepare($sql);
+			$stmt->bindParam(':id', $id, PDO::PARAM_STR);
+			$stmt->execute();
+
+			if($stmt->rowCount() == 1)
+			{
+				$fila = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				$usuario['nombre'] = $fila['nombre'];
+				$usuario['apellido'] = $fila['apellido'];
+				$usuario['user'] = $fila['user'];
+				$usuario['pass'] = $fila['pass'];
+				
+				return $usuario;
+			}	
+
+		} catch(PDOException $e){
+			throw new Exception($e->getMessage());
+		}
+
+		return 'fail';
+	}
 
 	function modificar($usuario){
 		
@@ -204,6 +235,11 @@ class Usuario{
 		$conn = new conexion();
 
 		$comp = comparador();
+
+		if(comp != 'fail')
+		{
+			
+		}
 
 		try{
 

@@ -1,5 +1,9 @@
 <?php
-	session_start();
+	
+  if(!isset($_SESSION)){
+    session_start();
+  }
+
 	header("Content-Type: text/html; charset=UTF-8");
 
 
