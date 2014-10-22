@@ -51,27 +51,17 @@ session_start();
 
 		if($res == $_POST['pass'])
 		{
-			$res2 = deleter2();
+			try {
+				$res2 = $a->baja2($_SESSION['id']);
+			} catch (Exception $e) {
+				header("Location: ../error/ErrorBaja.php?msg".$e->getMessage());
+				die();
+			}
+
 			return $res2;
+
 		}else{
 			header ('Location: Baja.php');
 			return $res;
 		}
-	}
-
-	function deleter2(){
-		include "../../modelo/usuario.class.php";
-
-		$a = new Usuario();
-
-		try {
-
-			$res = $a->baja2($_SESSION['id']);
-
-		} catch (Exception $e) {
-			header("Location: ../error/ErrorBaja.php?msg".$e->getMessage());
-			die();
-		}
-
-		return $res;
 	}
