@@ -2,9 +2,9 @@
 
 session_start();
 
-	if (isset($_SESSION['nombre'])) 
+	if (!isset($_SESSION['nombre'])) 
 	{
-		header("Location: AreaPersonal.php");
+		header("Location: ../publico/index.php");
 	}
 
 	if($_SERVER['REQUEST_METHOD'] == 'GET' && !isset($_GET['action']))
@@ -22,48 +22,65 @@ session_start();
 
 		if($action == 'modificar')
 		{
-			$usuario = modify();
-			$res = modificar($usuario,$_SESSION['id']);
-
+			mostrar_datos();
 		}
-	}	
-
-	if($res == 'ok'){
-		header ('Location: Modificacion_ok.php');
 	}
-	else
+
+	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
-		header ('Location: ../publico/index.php?error=1');
-		die();
+		$action = $_POST['action'];
+
+		if($action == 'datos') 
+		{
+			modificar_datos();
+		}
 	}
 
 
-	function modify(){
+	function mostrar_datos(){
+
 		include "../../modelo/usuario.class.php";
 
-		$a = new Usuario();
+		$u = new Usuario();
 
 		try {
 
-			$res = $a->obtener($_SESSION['id']);
+			$datauser = $u->obtener($_SESSION['id']);
+
+			include "Modificacion.php";
+
+			die();
 
 		} catch (Exception $e) {
 			header("Location: ../error/ErrorModify.php?msg".$e->getMessage());
 			die();
 		}
 
-		if($res == 'ok')
-		{
-			return $a;
-			header ('Location: /Modificacion.php');
-			die();
-		}
-		elseif ($res == 'fail') 
-		{
-			header ('Location: ../publico/index.php?error=1');
+	}
+
+	function modificar_datos(){
+
+		include "../../modelo/usuario.class.php";
+
+		$u =  new Usuario();
+
+		try{
+
+			$user_perfil["user"] 			= $_POST["user"];
+			$user_perfil["pass_new"] 		= $_POST["pass_new"];
+			$user_perfil["pass_confirm"] 	= $_POST["pass_confirm"];
+			$user_perfil["nombre"] 			= $_POST["nombre"];
+			$user_perfil["apellido"] 		= $_POST["apellido"];
+
+			$resp = $u->modificar($user_perfil);
+
+			if($resp == 'ok')
+			{
+				header("Location: AreaPersonal.php");
+			}
+
+		}catch(Exception $e){
+			header("Location: ../error/ErrorModify.php?msg".$e->getMessage());
 			die();
 		}
 	}
-
-
-	

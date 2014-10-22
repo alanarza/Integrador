@@ -76,13 +76,14 @@ class Usuario{
 	}
 
 	function obtener($i){
+
 		$id = $i;
 
 		$conn = new conexion();
 
 		try{
 
-			$sql = "SELECT * FROM usuarios WHERE id = :id";
+			$sql = "SELECT user, nombre, apellido FROM usuarios WHERE id = :id";
 			$stmt = $conn->prepare($sql);
 			$stmt->bindParam(':id', $id, PDO::PARAM_STR);
 			$stmt->execute();
@@ -90,10 +91,11 @@ class Usuario{
 			if($stmt->rowCount() == 1)
 			{
 				$fila = $stmt->fetch(PDO::FETCH_ASSOC);
+
 				$usuario['nombre'] = $fila['nombre'];
 				$usuario['apellido'] = $fila['apellido'];
 				$usuario['user'] = $fila['user'];
-				$usuario['pass'] = $fila['pass'];
+				
 				return $usuario;
 			}	
 
@@ -194,13 +196,14 @@ class Usuario{
 	}
 
 
-	function modificar($usuario, $id){
+	function modificar($usuario){
 		
 		$usuario['nombre'] = ucwords(strtolower($usuario['nombre']));
 		$usuario['apellido'] = ucwords(strtolower($usuario['apellido']));
-		
 
 		$conn = new conexion();
+
+		$comp = comparador();
 
 		try{
 

@@ -55,7 +55,7 @@
               <span class="caret"></span>
             </a>
               <ul class="dropdown-menu">
-                <li><a href="Modificacion.php">Cambiar mis Datos</a></li>
+                <li><a href="CONTmodificar.php?action=modificar">Editar mi Perfil</a></li>
                 <li><a href="Baja.php">Eliminar mi Perfil</a></li>
                 <li class="divider"></li>
                 <li><a href="../publico/CONTconectarse.php?action=salir">Cerrar Sesion</a></li>
@@ -113,7 +113,7 @@
           </div>
           <hr>
         </form>
-        
+
       </div>
 
 
