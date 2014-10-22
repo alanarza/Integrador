@@ -78,6 +78,10 @@ session_start();
 			{
 				header("Location: AreaPersonal.php");
 			}
+			else
+			{
+				header("Location: ../error/errorModificar.php");
+			}
 
 		}catch(Exception $e){
 			header("Location: ../error/ErrorModify.php?msg".$e->getMessage());

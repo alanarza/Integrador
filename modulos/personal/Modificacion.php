@@ -61,12 +61,15 @@
 					    <input type="text" name="apellido" class="form-control" id="apellido" value=<?php echo $datauser['apellido'];?> required>
 					</div>
 				  	
-					<input id="action" type="hidden" name="action" value="modificar"/>
+					<input id="action" type="hidden" name="action" value="datos"/>
 
+
+					<button type="submit" class="btn btn-success">Guardar</button>
 				</form>
 
 				<button type="cancel" onclick="javascript:window.location='AreaPersonal.php';" class="btn btn-danger">Cancelar</button>
-				<button type="submit" class="btn btn-success">Guardar</button>
+				
+			
 
 			</fieldset>
 		</div>
