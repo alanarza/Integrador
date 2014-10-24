@@ -242,24 +242,24 @@ class Usuario{
 			throw new Exception($e->getMessage());
 		}
 
-		if( empty($usuario['pass_new']))
+		if(empty($usuario['pass_new']))
 		{
 			
-			$usuario['pass_new'] = $comp['pass'];
+			$pss = $comp['pass'];
 
-		}elseif()
+		}elseif($usuario['pass_confirm'] == $comp['pass'])
 		{
-
+			$pss = $usuario['pass_new'];
 		}
 
-		if( $usuario['user'] != $comp['user']  || $usuario['nombre'] != $comp['nombre'] || $usuario['apellido'] != $comp['apellido'])
+		if( $usuario['user'] != $comp['user']  or $usuario['nombre'] != $comp['nombre'] or $usuario['apellido'] != $comp['apellido'] or $pss != $comp['pass'])
 		{
 			try{
 
-				$sql = "UPDATE usuarios SET user = :user, pass = :pass_new, nombre = :nombre, apellido = :apellido WHERE id = :id";
+				$sql = "UPDATE usuarios SET user = :user, pass = :pss, nombre = :nombre, apellido = :apellido WHERE id = :id";
 				$stmt = $conn->prepare($sql);
 				$stmt->bindParam(':user', $usuario['user'], PDO::PARAM_STR);
-				$stmt->bindParam(':pass_new', $usuario['pass_new'], PDO::PARAM_STR);
+				$stmt->bindParam(':pss', $pss, PDO::PARAM_STR);
 				$stmt->bindParam(':nombre', $usuario['nombre'], PDO::PARAM_STR);
 				$stmt->bindParam(':apellido', $usuario['apellido'], PDO::PARAM_STR);
 				$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
