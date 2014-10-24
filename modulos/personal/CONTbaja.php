@@ -17,7 +17,7 @@ session_start();
 
 		if($action == 'baja')
 		{
-			$res = deleter();
+			deleter();
 		}
 		else
 		{
@@ -26,12 +26,7 @@ session_start();
 		}
 	}	
 
-	if($res != 'ok'){
-		header('Location: Baja.php');
-	} else{
-		header ('Location: ../publico/CONTconectarse.php?action=salir');
-		die();
-	}
+	die();
 
 
 	function deleter(){
@@ -42,26 +37,22 @@ session_start();
 
 		try {
 
-			$res = $a->baja1($_SESSION['id']);
+			$resp = $a->baja($_POST['pass']);
+
+			if($resp == 'ok')
+			{
+				session_destroy();
+				header("Location: ../publico/index.php");
+				die();
+			}
+			elseif($resp == 'fail')
+			{
+				header("Location: Baja.php?error=1");
+			}
 
 		} catch (Exception $e) {
 			header("Location: ../error/ErrorBaja.php?msg".$e->getMessage());
 			die();
 		}
 
-		if($res == $_POST['pass'])
-		{
-			try {
-				$res2 = $a->baja2($_SESSION['id']);
-			} catch (Exception $e) {
-				header("Location: ../error/ErrorBaja.php?msg".$e->getMessage());
-				die();
-			}
-
-			return $res2;
-
-		}else{
-			header ('Location: Baja.php');
-			return $res;
-		}
 	}

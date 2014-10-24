@@ -286,43 +286,26 @@ class Usuario{
 
 	}	
 
-	function baja1($id){
-		$i = $id;
+	function baja($pass_confirm){
 
+		$pass = $pass_confirm;
 
 		$conn = new conexion();
 
 		try{
 
-			$sql = "SELECT pass FROM usuarios WHERE id = :id";
-			$stmt = $conn->prepare($sql);
-			$stmt->bindParam(':id', $i, PDO::PARAM_STR);
-			$stmt->execute();
+			$comp = $this->comparador();
 
-			if($stmt->rowCount() == 1)
-			{
-
-				$pass = $stmt->fetch(PDO::FETCH_ASSOC);
-				return $pass;
-
-			}	
-
-		} catch(PDOException $e){
+		}catch(Exception $e){
 			throw new Exception($e->getMessage());
 		}
 
-		return 'fail';
-	}
-
-	function baja2($id){
-		$i = $id;
-
-		$conn = new conexion();
-
-		try{
+		if($pass == $comp['pass'])
+		{
+			try{
 				$sql = "DELETE FROM usuarios WHERE id = :id";
 				$stmt = $conn->prepare($sql);
-				$stmt->bindParam(':id', $i, PDO::PARAM_STR);
+				$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
 				$stmt->execute();
 
 				if($stmt->rowCount() == 1)
@@ -330,8 +313,9 @@ class Usuario{
 					return 'ok';
 				}	
 
-		} catch(PDOException $e){
-			throw new Exception($e->getMessage());
+				} catch(PDOException $e){
+					throw new Exception($e->getMessage());
+				}
 		}
 
 		return 'fail';
