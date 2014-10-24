@@ -195,7 +195,7 @@ class Usuario{
 
 	}
 
-	private function comparador(){
+	function comparador(){
 
 		$id = $_SESSION['id'];
 
@@ -236,96 +236,31 @@ class Usuario{
 
 		try{
 
-			$comp = comparador();
+			$comp = $this->comparador();
 
 		}catch(Exception $e){
 			throw new Exception($e->getMessage());
 		}
 
-		if($usuario['user'] != $comp['user'])
+		if( empty($usuario['pass_new']))
+		{
+			
+			$usuario['pass_new'] = $comp['pass'];
+
+		}elseif()
+		{
+
+		}
+
+		if( $usuario['user'] != $comp['user']  || $usuario['nombre'] != $comp['nombre'] || $usuario['apellido'] != $comp['apellido'])
 		{
 			try{
 
-				$sql = "UPDATE usuarios SET user = :user WHERE id = :id";
-				$stmt = $con->prepare($sql);
+				$sql = "UPDATE usuarios SET user = :user, pass = :pass_new, nombre = :nombre, apellido = :apellido WHERE id = :id";
+				$stmt = $conn->prepare($sql);
 				$stmt->bindParam(':user', $usuario['user'], PDO::PARAM_STR);
-				$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
-				$stmt->execute();
-
-				if($stmt->rowCount() == 1)
-				{
-					$status = 'ok';
-				}
-				else
-				{
-					$status = 'error';
-					return $status;
-				}
-
-			}catch(PDOException $E){
-				throw new Exception($e->getMessage());
-			}
-		}
-
-		if(isset($usuario['pass_new']))
-		{
-			if($usuario['pass_confirm'] == $comp['pass'])
-			{
-				try{
-
-				$sql = "UPDATE usuarios SET pass = :pass WHERE id = :id";
-				$stmt = $con->prepare($sql);
-				$stmt->bindParam(':pass', $usuario['pass_new'], PDO::PARAM_STR);
-				$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
-				$stmt->execute();
-
-				if($stmt->rowCount() == 1)
-				{
-					$status = 'ok';
-				}
-				else
-				{
-					$status = 'error';
-					return $status;
-				}
-
-				}catch(PDOException $E){
-					throw new Exception($e->getMessage());
-				}
-			}
-		}
-
-		if($usuario['nombre'] != $comp['nombre'])
-		{
-			try{
-
-				$sql = "UPDATE usuarios SET nombre = :nombre WHERE id = :id";
-				$stmt = $con->prepare($sql);
+				$stmt->bindParam(':pass_new', $usuario['pass_new'], PDO::PARAM_STR);
 				$stmt->bindParam(':nombre', $usuario['nombre'], PDO::PARAM_STR);
-				$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
-				$stmt->execute();
-
-				if($stmt->rowCount() == 1)
-				{
-					$status = 'ok';
-				}
-				else
-				{
-					$status = 'error';
-					return $status;
-				}
-
-			}catch(PDOException $E){
-				throw new Exception($e->getMessage());
-			}
-		}
-
-		if($usuario['apellido'] != $comp['apellido'])
-		{
-			try{
-
-				$sql = "UPDATE usuarios SET apellido = :apellido WHERE id = :id";
-				$stmt = $con->prepare($sql);
 				$stmt->bindParam(':apellido', $usuario['apellido'], PDO::PARAM_STR);
 				$stmt->bindParam(':id', $_SESSION['id'], PDO::PARAM_STR);
 				$stmt->execute();
@@ -337,15 +272,15 @@ class Usuario{
 				else
 				{
 					$status = 'error';
-					return $status;
 				}
 
-			}catch(PDOException $E){
+			}catch(PDOException $e){
 				throw new Exception($e->getMessage());
 			}
 		}
-
-		$status = 'ok';
+		else{
+			$status = 'ok';
+		}
 
 		return $status;
 

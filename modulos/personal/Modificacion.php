@@ -32,23 +32,25 @@
 				<form role="form" action="CONTmodificar.php" method="post">
 
 					<div class="form-group">
-					    <label for="usuario">Usuario</label>
-					    <input type="text" name="user" class="form-control" id="usuario" value=<?php echo $datauser['user'];?> required>
+					    <label for="user">Usuario</label>
+					    <input type="text" name="user" class="form-control" id="user" value=<?php echo $datauser['user'];?> required>
 					</div>
 
 				  	<div class="form-group">
-				    	<label for="contraseña1">Nueva contraseña</label>
-				    	<input type="password" name="pass" class="form-control" id="contraseña1" type="password">
+				    	<label for="pass_new">Nueva contraseña</label>
+				    	<input type="password" name="pass_new" class="form-control" id="pass_new" type="password">
 				  	</div>
 
+				  	<!--
 				  	 <div class="form-group">
 				    	<label for="contraseña2">Confirmar nueva contraseña</label>
 				    	<input type="password" name="pass" class="form-control" id="contraseña2" type="password">
 				  	</div>
+					-->
 
 				  	 <div class="form-group">
-				    	<label for="contraseña">Contraseña antigua</label>
-				    	<input type="password" name="pass" class="form-control" id="contraseña" type="password">
+				    	<label for="pass_confirm">Contraseña antigua</label>
+				    	<input type="password" name="pass_confirm" class="form-control" id="pass_confirm" type="password">
 				  	</div>
 
 				  	<div class="form-group">

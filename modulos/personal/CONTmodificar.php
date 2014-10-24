@@ -66,17 +66,18 @@ session_start();
 
 		try{
 
-			$user_perfil["user"] 			= $_POST["user"];
-			$user_perfil["pass_new"] 		= $_POST["pass_new"];
-			$user_perfil["pass_confirm"] 	= $_POST["pass_confirm"];
-			$user_perfil["nombre"] 			= $_POST["nombre"];
-			$user_perfil["apellido"] 		= $_POST["apellido"];
+			$user_perfil["user"] = $_POST["user"];
+			$user_perfil["pass_new"] = $_POST["pass_new"];
+			$user_perfil["pass_confirm"] = $_POST["pass_confirm"];
+			$user_perfil["nombre"] = $_POST["nombre"];
+			$user_perfil["apellido"] = $_POST["apellido"];
 
 			$resp = $u->modificar($user_perfil);
 
 			if($resp == 'ok')
 			{
 				header("Location: AreaPersonal.php");
+				die();
 			}
 			else
 			{
